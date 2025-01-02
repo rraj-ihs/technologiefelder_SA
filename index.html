@@ -6,6 +6,17 @@
 	
 		<title>Sensitivity Analysis in the Age of AI: Integrating Morris Method with Machine Learning</title>
 
+    <meta name="description" content="Technologiefelder der Wasserkraft">
+    <meta name="author" content="Rohit Raj">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!--meta name="viewport" content="width=device-width, initial-scale=1.0"-->
+    
+    <link rel="stylesheet" href="plugin/chalkboard/style.css">
+    <link rel="stylesheet" href="plugin/customcontrols/style.css">
+    <link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
 		<link rel="stylesheet" href="my-white.css" id="theme">
 
@@ -17,14 +28,14 @@
 
 		<div class="reveal">
 		<div class="slides">
-			<section data-backgroundimage="assets/titel_la.png">
+			<section data-background-image="assets/titel_la.png">
           <div style="text-align: left; float: left;">
-          <\div>
+          </div>
           <div style="text-align: right; float: right;">
               <h3 style="color:white">
                 Sensitivity Analysis in the Age of AI: Integrating Morris Method with Machine Learning
-              <\h3>
-              <h4 style="color:white"> Rohit Raj <\h4>
+              </h3>
+              <h4 style="color:white">Rohit Raj</h4>>
               <!-- <h5 color:white> -->
               <h5 style="color:white; text-transform: lowercase;">
                 <a href="https://rraj-ihs.github.io/technologiefelder_SA/#/" style="color:white; text-decoration: underline;">
@@ -66,8 +77,21 @@
             </div>
 
 			</section>
-				
-				<section>Slide 2</section> 
+      <section>
+          <h2>Outline</h2>
+          <ul>
+            <li>Sensitivity Analysis</li>
+            <li>Machine Learning</li>
+            <li>ML in Morris Method</li>
+            <li>Summary</li>
+          </ul>
+      </section>
+      <section
+				data-markdown="morris_sa.md"
+        data-separator="^\n\n\n"
+        data-separator-vertical="^\n\n"
+      >
+      </section>
 		</div>
 		</div>
 
@@ -75,16 +99,66 @@
 		<script src="plugin/notes/notes.js"></script>
 		<script src="plugin/markdown/markdown.js"></script>
 		<script src="plugin/highlight/highlight.js"></script>
-		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
-			Reveal.initialize({
-				hash: true,
+    <script src="plugin/math/math.js"></script>
+    <script src="plugin/zoom/zoom.js"></script>
+    <script src="plugin/search/search.js"></script>
+    <script src="plugin/chalkboard/plugin.js"></script>
+    <script src="plugin/customcontrols/plugin.js"></script>
 
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+		<script>
+			
+		  Reveal.initialize({
+        hash: true,
+        slideNumber: true,
+				progress: true,
+				history: true,
+				center: true,
+        katex: {
+          macros: {
+            "\\pp" : "\\frac{\\partial #1}{\\partial#2}",
+            "\\dd" : "\\frac{\\Delta #1}{\\Delta #2}",
+            "\\at" : "\\left[ #1 \\right]_{#2}",
+            "\\fd" : "\\frac{{#1}_{#2}-{#1}_{#3}}{#4}",
+            "\\ffd" : "\\frac{{#1}_{#2}-{2#1}_{#3}+{#1}_{#4}}{#5}",
+            "\\hide" : "\\textcolor{lightgray}{#1}",
+            "\\intV" : "\\int_\\mathcal{V} #1 \\, d\\mathcal{V}",
+            "\\intS" : "\\int_\\mathcal{S} #1 \\, d\\mathcal{S}",
+            "\\uv" : "\\underline{u}",
+          }
+        },
+        
+        customcontrols: {
+          controls: [
+					  {
+						  icon: '<i class="fa fa-pencil-square" style="font-size:36px"></i>',
+						  title: 'Toggle chalkboard (B)',
+						  action: 'RevealChalkboard.toggleChalkboard();'
+					  },
+					  {
+						  icon: '<i class="fa fa-pencil" style="font-size:36px"></i>',
+						  title: 'Toggle notes canvas (C)',
+						  action: 'RevealChalkboard.toggleNotesCanvas();'
+					  }
+				  ]
+        },
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealCustomControls, RevealMath.KaTeX ],
 			});
-		</script>
+      Reveal.configure({ 
+        pdfSeparateFragments: false,
+        showNotes: false
+      });		
+    </script>
+    <style type="text/css">
+      .reveal .slide-number {
+        font-size: 1em;
+        color: #42affa;
+        right: auto;
+        width: 1.5em;
+        height: 1.5em;
+        background-color: #191919;
+        display: grid !important;
+        place-items: center;
+      }
+    </style>
 	</body>
 </html>
