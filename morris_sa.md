@@ -21,8 +21,24 @@
 }
 
 </style>
+
 # Sensitivity Analysis (SA)
 
 
-## Morris Method 
+## Local vs. Global Sensitivity Analysis
 
+### Local Sensitivity Analysis
+
++ Considers the effect of variation of parameters locally in close vicinity of the point in consideration
++ Derivative based (numerically or analytically) sensitivity coefficients
++ Usually follows one-at-a-time (OAT) technique that analyses the impact of one parameter at a time, keeping other parameters fixed
+
+### Global Sensitivity Analysis
+
++ Considers the effect of variation of parameters globally in whole domain under consideration
++ Generally requires Monte Carlo sampling of points within the domain
+
+
+## Morris Sensitivity Analysis
+
+<div id="left">
