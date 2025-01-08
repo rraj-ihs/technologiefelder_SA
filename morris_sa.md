@@ -120,12 +120,12 @@ where $\Delta$ is predetermined multiple of $1/(p-1)$ and point $x = (x_1, x_2,.
 <div class="r-stack">
   <img
     class="fragment current-visible"
-    data-fregment-index="1"
+    data-fragment-index="1"
     src="assets/ml-class/ml-class-1.svg"
   />
   <img
     class="fragment current-visible"
-    data-fregment-index="2"
+    data-fragment-index="2"
     src="assets/ml-class/ml-class-2.svg"
   />
   
@@ -137,22 +137,22 @@ where $\Delta$ is predetermined multiple of $1/(p-1)$ and point $x = (x_1, x_2,.
 <div class="r-stack">
   <img
     class="fragment current-visible"
-    data-fregment-index="1"
+    data-fragment-index="1"
     src="assets/nn-mlp/nn-1.svg"
   />
   <img
     class="fragment current-visible"
-    data-fregment-index="2"
+    data-fragment-index="2"
     src="assets/nn-mlp/nn-2.svg"
   />
   <img
     class="fragment current-visible"
-    data-fregment-index="3"
+    data-fragment-index="3"
     src="assets/nn-mlp/nn-3.svg"
   />
   <img
     class="fragment current-visible"
-    data-fregment-index="4"
+    data-fragment-index="4"
     src="assets/nn-mlp/nn-4.svg"
   />
 </div>
@@ -161,18 +161,76 @@ where $\Delta$ is predetermined multiple of $1/(p-1)$ and point $x = (x_1, x_2,.
 ## Perceptron / Neuron
 
 <div id="right">
-  <div class r-stack>
+  <div class="r-stack">
    <img
-      class="fragment fade-in"
-      data-fregment-index="1"
+      class="fragment fade-in-then-out"
+      data-fragment-index="1"
       src="assets/nn-mlp/perceptron-1.svg"
    />
    <img
       class="fragment fade-in"
-      data-fregment-index="2"
+      data-fragment-index="2"
       src="assets/nn-mlp/perceptron-2.svg"
     />
   </div>
+  <div class="r-stack">
+    <img
+      class="fragment fade-in-then-out"
+      data-fragment-index="3"
+      src="assets/af/ActivationFunctions.svg"
+    />
+    <img
+      class="fragment fade-in-then-out"
+      data-fragment-index="4"
+      src="assets/af/af-step.svg"
+    />
+    <img
+      class="fragment fade-in-then-out"
+      data-fragment-index="5"
+      src="assets/af/af-tanh.svg"
+    />
+    <img
+      class="fragment fade-in-then-out"
+      data-fragment-index="6"
+      src="assets/af/af-relu.svg"
+    />
+    <img
+      class="fragment fade-in"
+      data-fragment-index="7"
+      src="assets/af/af-sigmoid.svg"
+    />
+  </div>
+
+  - credit: Wikimedia Commons 
+  <!-- .element: class="fragment" data-fragment-index="3"-->
+</div>
+
+<div id="left">
+  
+  - A perceptron takes in few inputs, with corresponding weights.
+  <!-- .element: class="fragment" data-fragment-index="1"-->
+
+  - It computes the outputs as: 
+
+    $y = \sum_{i=1}^d x_i * w_i + b_i$
+
+    where $x$ is input, $w$ is weight, and $b$ is the bias.
+  <!-- .element: class="fragment" data-fragment-index="2"-->
+
+  - Activation Functions 
+  <!-- .element: class="fragment" data-fragment-index="3"-->
+    + It adds non-linearity to the model.
+     <!-- .element: class="fragment" data-fragment-index="3"-->
+
+    + Different kinds of activation functions:
+      1. Binary step function 
+      <!-- .element: class="fragment" data-fragment-index="4"-->
+      2. Tanh function
+      <!-- .element: class="fragment" data-fragment-index="5"-->
+      3. ReLU / leaky ReLU function
+      <!-- .element: class="fragment" data-fragment-index="6"-->
+      4. Sigmoid function
+      <!-- .element: class="fragment" data-fragment-index="7"--> 
 </div>
 
 
