@@ -212,7 +212,7 @@ where $\Delta$ is predetermined multiple of $1/(p-1)$ and point $x = (x_1, x_2,.
 
   - It computes the outputs as: 
 
-    $y = \sum_{i=1}^d x_i * w_i + b_i$
+    $\hat{y_i} = \sum_{i=1}^d x_i * w_i + b_i$
 
     where $x$ is input, $w$ is weight, and $b$ is the bias.
   <!-- .element: class="fragment" data-fragment-index="2"-->
@@ -234,9 +234,56 @@ where $\Delta$ is predetermined multiple of $1/(p-1)$ and point $x = (x_1, x_2,.
 </div>
 
 
+## Training 
+
+<div id="left">
+
+  + Dataset: collect a set of labeled training data:
+  
+  $\mathcal{D} = \left{(x_i,y_i) \right}^N $
+
+  + Forward pass: pass the input values from model
+
+  + Cost/loss function: compute the loss function e.g. mean-square error(MSE)
+
+  $\mathcal{L}(\theta) = \Sum_{i=1}^N ||y_i - \hat{y_i}(x_i)||^2$
+
+</div>
+
+<div id="right">
+  
+</div>
+
 
 
 # ML in Morris Method
+
+
+## Axial Turbine: a Test Case
+
+<div id="left">
+  <img
+      class="fragment fade-in"
+      data-fragment-index="1"
+      src="assets/TT.svg"
+      height="450"
+    />  
+</div>
+<div id="right">
+  <img
+      class="fragment fade-in"
+      data-fragment-index="2"
+      src="assets/PM.svg"
+      height="450"
+    />
+</div>
+
++ 3 sections at hub, mid-span, and shroud.
+<!-- .element: class="fragment" data-fragment-index="3"-->
++ 10 parameters at each section
+<!-- .element: class="fragment" data-fragment-index="3"-->
++ Total 30 number of parameters for designing
+<!-- .element: class="fragment" data-fragment-index="3"-->
 
 
 
