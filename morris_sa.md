@@ -286,6 +286,50 @@ where $\Delta$ is predetermined multiple of $1/(p-1)$ and point $x = (x_1, x_2,.
 <!-- .element: class="fragment" data-fragment-index="3"-->
 
 
+## Classical Result
+
+<div id="left">
+  <img
+      class="fragment fade-in"
+      data-fragment-index="1"
+      src="assets/results/bar_salib.png"
+  />
+</div>
+<div id="right">
+  <img
+      class="fragment fade-in"
+      data-fragment-index="2"
+      src="assets/results/scatter_salib.png"
+  />
+</div>
+
+
+## Deep Learning Result
+
+<div id="left">
+  <img
+      class="fragment fade-in"
+      data-fragment-index="1"
+      src="assets/results/bar_surrogate.png"
+  />
+</div>
+<div id="right">
+  <img
+      class="fragment fade-in"
+      data-fragment-index="2"
+      src="assets/results/scatter_surrogate.png"
+  />
+</div>
+
+
+## Combined results
+
+<img
+    class="fragment fade-in"
+    data-fragment-index="1"
+    src="assets/results/A4_final.png"
+/>
+
 
 # Sources
 
