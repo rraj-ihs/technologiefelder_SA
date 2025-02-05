@@ -70,9 +70,23 @@ where $\Delta$ is predetermined multiple of $1/(p-1)$ and point $x = (x_1, x_2,.
 
 ## Morris Global Sensitivity Analysis
 
-<img
+<div id="right">
+  <img
+      src="assets/morris_plot.svg"
+      height="500"
+      height="125%"
+  />
+</div>
+<div id="left">
   
-/>
+  + Plot between absolute mean ($\mu^* (EE_i)$) and standard deviation ($\sigma (EE_i)$). 
+  + Dotted line represents $\sigma = \mu^*$ line.
+  + Solid line represents $\frac{\sigma}{\mu^*} + 2 * SEM$ line
+  + SEM stands for standard error of mean, given as $\sigma_x = \frac{\sigma}{\sqrt{n}}$
+
+  + High mean value means high and mostly linear importance.
+  + High standard deviation means either non-linear effects on output and/or interactions with other inputs.
+</div>
 
 
 
@@ -219,18 +233,18 @@ where $\Delta$ is predetermined multiple of $1/(p-1)$ and point $x = (x_1, x_2,.
 
   - Activation Functions 
   <!-- .element: class="fragment" data-fragment-index="3"-->
-    + It adds non-linearity to the model.
-     <!-- .element: class="fragment" data-fragment-index="3"-->
-
-    + Different kinds of activation functions:
-      1. Binary step function 
-      <!-- .element: class="fragment" data-fragment-index="4"-->
-      2. Tanh function
-      <!-- .element: class="fragment" data-fragment-index="5"-->
-      3. ReLU / leaky ReLU function
-      <!-- .element: class="fragment" data-fragment-index="6"-->
-      4. Sigmoid function
-      <!-- .element: class="fragment" data-fragment-index="7"--> 
+  - It adds non-linearity to the model.
+  <!-- .element: class="fragment" data-fragment-index="3"-->
+  - Different kinds of activation functions:
+  <!-- .element: class="fragment" data-fragment-index="3"-->
+  1. Binary step function 
+  <!-- .element: class="fragment" data-fragment-index="4"-->
+  2. Tanh function
+  <!-- .element: class="fragment" data-fragment-index="5"-->
+  3. ReLU / leaky ReLU function
+  <!-- .element: class="fragment" data-fragment-index="6"-->
+  4. Sigmoid function
+  <!-- .element: class="fragment" data-fragment-index="7"--> 
 </div>
 
 
@@ -238,33 +252,80 @@ where $\Delta$ is predetermined multiple of $1/(p-1)$ and point $x = (x_1, x_2,.
 
 <div id="left">
 
-  + Dataset: collect a set of labeled training data:
+  - Dataset: collect a set of labeled training data:
+
+    $D = (x_i,y_i)^N $
+
+  - Forward pass: pass the input values from model
+  - Cost/loss function: compute the loss function e.g. mean-square error(MSE)
   
-  $\mathcal{D} = \left{(x_i,y_i) \right}^N $
+    $L(\theta) = \sum_{i=1}^N ||y_i - \hat{y_i}(x_i)||^2$
 
-  + Forward pass: pass the input values from model
+  - Backpropagation:  
+</div>
 
-  + Cost/loss function: compute the loss function e.g. mean-square error(MSE)
+<div id="right">
+  <img
+      class="fragment fade-in"     
+      src="assets/training.svg"
+      height="600"
+  />  
+</div>
 
-  $\mathcal{L}(\theta) = \Sum_{i=1}^N ||y_i - \hat{y_i}(x_i)||^2$
+
+## Training
+
+<div id="left">
+
+- Backpropagation: 
+    
+  + Loss function depends on weights of networks $w_i$.
+  + Chain-rule of differentiation is applied to compute the gradients of oss functin with respect to weights.
+    
+    $\frac{\partial L}{\partial w_6} = \frac{\partial L}{\partial \hat{y}} * \frac{\partial \hat{y}}{\partial w_6}$
+
+- Optimization Step:
+  
+  + Update the weights according to learning rate as $w_6 \leftarrow \eta \frac{\partial L}{\partial w_6}$
 
 </div>
 
 <div id="right">
-  
+  <img
+      class="fragment fade-in"
+      src="assets/training.svg"
+      height="600"
+  />  
 </div>
+
+
+## Training 
+<img
+    class="fragment fade-in"
+    data-fragment-index="1"
+    src="assets/full_training.svg"
+    height="600"
+/>
 
 
 
 # ML in Morris Method
 
 
-## Axial Turbine: a Test Case
+## Axial Turbine: A Test Case
+<img
+    class="fragment fade-in-then-out"
+    data-fragment-index="1"
+    src="assets/axial_turbine.svg"
+    height="500"
+/>
 
+
+## Axial Turbine: A Test Case
 <div id="left">
   <img
       class="fragment fade-in"
-      data-fragment-index="1"
+      data-fragment-index="2"
       src="assets/TT.svg"
       height="450"
     />  
@@ -272,18 +333,57 @@ where $\Delta$ is predetermined multiple of $1/(p-1)$ and point $x = (x_1, x_2,.
 <div id="right">
   <img
       class="fragment fade-in"
-      data-fragment-index="2"
+      data-fragment-index="3"
       src="assets/PM.svg"
       height="450"
     />
 </div>
 
 + 3 sections at hub, mid-span, and shroud.
-<!-- .element: class="fragment" data-fragment-index="3"-->
+<!-- .element: class="fragment" data-fragment-index="4"-->
 + 10 parameters at each section
-<!-- .element: class="fragment" data-fragment-index="3"-->
+<!-- .element: class="fragment" data-fragment-index="4"-->
 + Total 30 number of parameters for designing
-<!-- .element: class="fragment" data-fragment-index="3"-->
+<!-- .element: class="fragment" data-fragment-index="4"-->
+
+
+## Morris Method
+
+<div class="r-stack">
+  <img
+      class="fragment fade-in-then-out"
+      data-fragment-index="1"
+      src="assets/EE_ML_1.svg"
+      height="700"
+  />
+  <img
+      class="fragment fade-in-then-out"
+      data-fragment-index="2"
+      src="assets/EE_ML_2.svg"
+      height="700"
+  />
+  <img
+      class="fragment fade-in-then-out"
+      data-fragment-index="3"
+      src="assets/EE_ML_3.svg"
+      height="700"
+  />
+  <img
+      class="fragment fade-in-then-out"
+      data-fragment-index="4"
+      src="assets/EE_ML_4.svg"
+      height="700"
+  />
+</div>
+
+## Results 
++ Presented results are for efficiency at nominal loads.
++ All results are normalized at same scale. 
++ All tests are performed 10 times and averaged for elementary effects computation. 
++ 2 lines in scatter plot represent:
+
+  + Black solid line: Mean line, $\sigma / \mu^* = 1$
+  + Red dotted line: Standard Error of Mean (SEM) line, $\sigma / \mu^* + 2*SEM $
 
 
 ## Classical Result
@@ -293,6 +393,7 @@ where $\Delta$ is predetermined multiple of $1/(p-1)$ and point $x = (x_1, x_2,.
       class="fragment fade-in"
       data-fragment-index="1"
       src="assets/results/bar_salib.png"
+      height="600"
   />
 </div>
 <div id="right">
@@ -300,6 +401,7 @@ where $\Delta$ is predetermined multiple of $1/(p-1)$ and point $x = (x_1, x_2,.
       class="fragment fade-in"
       data-fragment-index="2"
       src="assets/results/scatter_salib.png"
+      height="600"
   />
 </div>
 
@@ -311,6 +413,7 @@ where $\Delta$ is predetermined multiple of $1/(p-1)$ and point $x = (x_1, x_2,.
       class="fragment fade-in"
       data-fragment-index="1"
       src="assets/results/bar_surrogate.png"
+      height="600"
   />
 </div>
 <div id="right">
@@ -318,6 +421,7 @@ where $\Delta$ is predetermined multiple of $1/(p-1)$ and point $x = (x_1, x_2,.
       class="fragment fade-in"
       data-fragment-index="2"
       src="assets/results/scatter_surrogate.png"
+      height="600"
   />
 </div>
 
@@ -329,6 +433,7 @@ where $\Delta$ is predetermined multiple of $1/(p-1)$ and point $x = (x_1, x_2,.
     data-fragment-index="1"
     src="assets/results/A4_final.png"
 />
+
 
 
 # Sources
