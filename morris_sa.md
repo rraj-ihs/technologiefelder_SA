@@ -25,50 +25,358 @@
 # Sensitivity Analysis (SA)
 
 
+## What is SENSITIVITY ANALYSIS?
+
+
+## What is Sensitivity Analysis?
+An Example:
+<!-- .element: class="fragment fade-in" data-fragment-index="1" -->
+
+<div class="r-stack">
+  <img
+    class="fragment current-visible"
+    src="assets/intro/intro_1.svg"
+    data-fragment-index="2"
+  />
+  <img
+    class='fragment current-visible'
+    src="assets/intro/intro_2.svg"
+    data-fragment-index="3"
+  />
+  <img
+    class='fragment fade-in'
+    src="assets/intro/intro_3.svg"
+    data-fragment-index="4"
+  />
+</div>
+
+Several choices to make from: 
+<!-- .element: class="fragment fade-in" data-fragment-index="5" -->
+
+<div id="left">
+
+  + Mode of transport
+  + Route 
+  + Travel cost
+  + Delays of transport
+</div>
+
+<!-- .element: class="fragment fade-in" data-fragment-index="6" -->
+
+<div id="right">
+
+  + Departure time
+  + Total travel time
+  + Comfort level
+  + weather conditions
+</div>
+
+<!-- .element: class="fragment fade-in" data-fragment-index="6" -->
+
+
+## What is sensitivity Analysis...?
+
+<div id="left">
+  Sensitivity Analysis is a method used:
+
+  + To understand relationship between inputs and outputs. 
+  + To understand how changes in input variables affect the outcome of the decision or process.
+  + It is also called as "what-if analysis".
+  + Because it helps answer questions like, "What if this changes-how will the outcome be affected?"
+</div>
+<!-- .element: class="fragment fade-in" data-fragment-index="1" -->
+
+<div id="right">
+  
+  + A Tornado plot for driving car with average drive time 6.5 hours
+  <!-- .element: class="fragment fade-in" data-fragment-index="2"" -->
+  <img
+    class="fragment fade-in"
+    src="assets/tornado_plot_travel_time.png"
+    data-fragment-index="3"
+  />
+</div>
+
+
+## Why is Sensitivity Analysis Important?
+
++ **Identifies Key Drivers:** It shows which factors most influence results/outcomes, so to know where to focus the attention.
+
+<!-- .element: class="fragment fade-in" data-fragment-index="1" -->
+
++ **Reduces Uncertainty:** By understanding how changes in the inputs affect outcomes, so that better be prepared for uncertainty 
+and make more robust decisions.
+
+<!-- .element: class="fragment fade-in" data-fragment-index="2" -->
+
++ **Supports Decision-Making:** It helps to evaluate risks, trade-offs, and potential scenarios, making planning more informed 
+and reliable.
+
+<!-- .element: class="fragment fade-in" data-fragment-index="3" -->
+
+
 ## Local vs. Global Sensitivity Analysis
 
-### Local Sensitivity Analysis
+<img
+  class="fragment fade-in"
+  data-fragment-index="1"
+  src="assets/tornado_plot_weekday_weekend.png"
+  width="140%"
+/>
 
-+ Considers the effect of variation of parameters locally in close vicinity of the point in consideration
-+ Derivative based (numerically or analytically) sensitivity coefficients
-+ Usually follows one-at-a-time (OAT) technique that analyses the impact of one parameter at a time, keeping other parameters fixed
+<div class="Note" style="font-size: 50%"
+  
+  Note: Figure not based on actual data, just for representation. 
 
-### Global Sensitivity Analysis
+</div>
 
-+ Considers the effect of variation of parameters globally in whole domain under consideration
-+ Generally requires Monte Carlo sampling of points within the domain
+
+## Local vs. Global Sensitivity Analysis
+
+
+## 1. Local Sensitivity Analysis
+
+  + Evaluates how small changes to input parameters **around a specific reference point** affect the output.class
+
+  <!-- .element: class="fragment fade-in" data-fragment-index="1" -->
+
+  + It is often called a "one-at-a-time" (OAT) technique that analyses the impact of one parameter at a time, keeping other parameters fixed
+
+  <!-- .element: class="fragment fade-in" data-fragment-index="2" -->
+
+**Key Features:**
+
+  <!-- .element: class="fragment fade-in" data-fragment-index="3" -->
+
+  - **Derivative-based:** Measures the slope (partial derivatives) of the output with respect to each input at a fixed point.
+
+  <!-- .element: class="fragment fade-in" data-fragment-index="4" -->
+
+  - **Computationally efficient:** Requires few model evaluations since it only explores perturbations near the reference value.
+
+  <!-- .element: class="fragment fade-in" data-fragment-index="5" -->
+
+  - **Limited scope:** Results are valid only near the chosen point and may miss nonlinear effects or interactions between variables.
+
+  <!-- .element: class="fragment fade-in" data-fragment-index="6" -->
+
+
+## 2. Global Sensitivity Analysis
+
+  - Considers the effect of variation of parameters globally in **across their entire domain** under consideration on output. 
+
+  <!-- .element: class="fragment fade-in" data-fragment-index="1" -->
+
+  - It accounts for **interactions between variables**. It means that if one parameter depends on the variations in 
+  other parameters. 
+
+  <!-- .element: class="fragment fade-in" data-fragment-index="2" -->
+
+  - It also accounts for **nonlinear effects**, meaning that the output is nonlinearly related to the inputs. 
+
+  <!-- .element: class="fragment fade-in" data-fragment-index="3" -->
+
+  - Generally requires Monte Carlo sampling of points within the domain to capture all interactions and non-linearity variations across domain.
+
+   <!-- .element: class="fragment fade-in" data-fragment-index="4" -->
+
+**Key Features:**
+  
+   <!-- .element: class="fragment fade-in" data-fragment-index="5" -->
+
+  - **Probabilistic:** Explores the full input space (e.g. varying multiple parameters simultaneously)
+
+   <!-- .element: class="fragment fade-in" data-fragment-index="6" -->
+
+  - **Computationally intensive:** Requires many model evaluations to sample diverse scenarios. 
+
+   <!-- .element: class="fragment fade-in" data-fragment-index="7" -->
+
+  - **Robust insights:** identifies dominant factors and interactions, even in complex systems. 
+
+   <!-- .element: class="fragment fade-in" data-fragment-index="8" -->
+
+
+## Overview: Sensitivity Analysis
+
+<img
+  src="assets/sensitivity_analysis_tree.png"
+  width="140%"
+/>
+
+
+## Screening Technique
+<img
+  class="fragment fade-in"
+  src="assets/model_sa.svg"
+  data-fragment-index="1"
+  width="80%"
+  height="60%"
+/>
+
++ Large number of input variables are available in the model evaluation.
+
+ <!-- .element: class="fragment fade-in" data-fragment-index="2" -->
+
++ Large models -> takes long time to evaluate each individual such as CFD simulations, FEA simulations etc.Analysis
+
+ <!-- .element: class="fragment fade-in" data-fragment-index="3" -->
+
+<div style="border: 2px solid #007ACC; background-color: #E6F7FF; padding: 10px; border-radius: 8px; font-size: 1.1em;">
+    Which factors are important and which are NOT?
+</div>
+
+ <!-- .element: class="fragment fade-in" data-fragment-index="4" -->
 
 
 ## Morris Sensitivity Analysis
 
 <div id="left">
 
+  - Goal is to reduce the number of model evaluations for global sensitivity analysis. 
+
+  <!-- .element: class="fragment fade-in" data-fragment-index="1" -->
+  
   - One-at-a-time (OAT) method
-  - Based on method of trajectories
+
+  <!-- .element: class="fragment fade-in" data-fragment-index="2" -->
+
   - Gives qualitative information about importance of input parameters
-  - Global Sensitivity Analysis method
+
+ <!-- .element: class="fragment fade-in" data-fragment-index="3" -->
+
   - Computations of Elementary Effects (EEs)
+
+ <!-- .element: class="fragment fade-in" data-fragment-index="4" -->
 </div>
 
 <div id="right">
   <img
+    class="fragment fade-in"
     src="assets/morris_trajectory.svg"
     width="120%"
-    height="150%"
+    data-fragment-index="5"
   />
 </div>
 
-+ Elementary Effects:
-$
+**Elementary Effects:**  
+ 
+<!-- .element: class="fragment fade-in" data-fragment-index="6" -->
+
+$$
 EE_i(x) = \frac{[y(x_1, ..., x_{i-1}, x_i + \Delta, x_{i+1}, ..., x_k) - y(x)]}{\Delta}
-$
+$$
+
+<!-- .element: class="fragment fade-in" data-fragment-index="6" -->
 
 where $\Delta$ is predetermined multiple of $1/(p-1)$ and point $x = (x_1, x_2,..., x_d) \in H^d$
 
-<!-- .element: class="fragment fade-in" data-fregment-index="1" -->
+<!-- .element: class="fragment fade-in" data-fragment-index="6" -->
 
 
-## Morris Global Sensitivity Analysis
+## Morris Trajectory Design 
+
+<div id="right">
+  <div class="r-stack">
+    <img
+        class="fragment fade-in-then-out"
+        data-fragment-index="1"
+        src="assets/oat_trajectory/oat_1.svg"
+        height="80%"
+    />
+    <img
+        class="fragment fade-in-then-out"
+        data-fragment-index="2"
+        src="assets/oat_trajectory/oat_2_x1.svg"
+        height="80%"
+    />
+    <img
+        class="fragment fade-in-then-out"
+        data-fragment-index="3"
+        src="assets/oat_trajectory/oat_3_x2.svg"
+        height="80%"
+    />
+    <img
+        class="fragment fade-in-then-out"
+        data-fragment-index="4"
+        src="assets/oat_trajectory/oat_4_x1_x2.svg"
+        height="80%"
+    />
+    <img
+        class="fragment fade-in-then-out"
+        data-fragment-index="5"
+        src="assets/oat_trajectory/oat_4_combined.svg"
+        height="80%"
+    />
+    <img
+        class="fragment fade-in"
+        data-fragment-index="6"
+        src="assets/oat_trajectory/oat_4_x1_x2_x3.svg"
+        height="80%"
+    />
+  </div>
+</div>
+
+<div id="left">
+  
+  - Lets start with 2 parameters model.
+    
+  <!-- .element: class="fragment fade-in" data-fragment-index="1" -->
+
+  - For 4 EE computations for $x_1$, 8 evaluations are required.
+
+  <!-- .element: class="fragment fade-in" data-fragment-index="2" -->
+
+  - Similarly, for $x_2$, 8 evaluations are required for 4 EE. 
+
+  <!-- .element: class="fragment fade-in" data-fragment-index="3" -->
+
+  - Total 16 evaluations are required for 4 EE computations for 2 parameters.
+
+  <!-- .element: class="fragment fade-in" data-fragment-index="4" -->
+
+  - Intelligently placing the candidates can reduce the number of evaluations from 16 to 12. 
+
+  <!-- .element: class="fragment fade-in" data-fragment-index="5" -->
+
+  - Similarly, for 3 parameters model, model evaluations can be reduced from 24 to 16. 
+
+  <!-- .element: class="fragment fade-in" data-fragment-index="6" -->
+
+</div>
+
++ In general, *Morris trajectory design* can **reduce number of evaluations** from $2xr$ to $r(x+1)$, where $r$ is number of 
+trajectories and $x$ is number of parameters. 
+
+<!-- .element: class="fragment fade-in" data-fragment-index="7" -->
+
+
+## Elementary Effects (EE)
+### How to measure Sensitivity from EE?
+<!-- .element: class="fragment fade-in" data-fragment-index="1" -->
+
+- **Absolute Mean of $EE_i$:** Indicates the magnitude of effect or importance ranking.
+
+<!-- .element: class="fragment fade-in" data-fragment-index="2" -->
+
+$$
+\mu^* = \frac{1}{r} \sum_{i=1}^r \left| EE_i \right|
+$$
+
+<!-- .element: class="fragment fade-in" data-fragment-index="2" -->
+
+- **Standard Deviation of $EE_i$:** Indicates the topology of effect.
+
+<!-- .element: class="fragment fade-in" data-fragment-index="3" -->
+
+$$
+\sigma = \sqrt{\frac{1}{r-1} \sum_{i=1}^r (EE_i - \mu_i^*)^2}
+$$
+
+<!-- .element: class="fragment fade-in" data-fragment-index="3" -->
+
+
+## mean and variance terms 
 
 <div id="right">
   <img
@@ -87,6 +395,41 @@ where $\Delta$ is predetermined multiple of $1/(p-1)$ and point $x = (x_1, x_2,.
   + High mean value means high and mostly linear importance.
   + High standard deviation means either non-linear effects on output and/or interactions with other inputs.
 </div>
+
+
+## Effect topology
+
+- $\frac{\sigma_i}{\mu_i} \leq 0.1$  
+
+<!-- .element: class="fragment fade-in" data-fragment-index="1" -->
+   
+$x_i$ has an almost **Linear effect** on output.
+
+<!-- .element: class="fragment fade-in" data-fragment-index="2" -->
+
+- $0.1 \leq \frac{\sigma_i}{\mu_i} \leq 0.5$
+
+<!-- .element: class="fragment fade-in" data-fragment-index="3" -->
+
+$x_i$ has a **monotonic effect** on output.
+
+<!-- .element: class="fragment fade-in" data-fragment-index="4" -->
+
+- $0.5 \leq \frac{\sigma_i}{\mu_i} \leq 1$
+
+<!-- .element: class="fragment fade-in" data-fragment-index="5" -->
+
+$x_i$ has a **quasi-monotonic effect** on output.
+
+<!-- .element: class="fragment fade-in" data-fragment-index="6" -->
+
+- $\frac{\sigma_i}{\mu_i} \geq 1$
+
+<!-- .element: class="fragment fade-in" data-fragment-index="7" -->
+
+$x_i$ has a **nonlinear and/or interation effects**.
+
+<!-- .element: class="fragment fade-in" data-fragment-index="8" -->
 
 
 
@@ -312,6 +655,115 @@ where $\Delta$ is predetermined multiple of $1/(p-1)$ and point $x = (x_1, x_2,.
 # ML in Morris Method
 
 
+## Morris Method for differentiable function 
+
+<div class="r-stack">
+  <img
+      class="fragment fade-in-then-out"
+      data-fragment-index="1"
+      src="assets/EE_ML_1.svg"
+      height="700"
+  />
+  <img
+      class="fragment fade-in-then-out"
+      data-fragment-index="2"
+      src="assets/EE_ML_2.svg"
+      height="700"
+  />
+  <img
+      class="fragment fade-in-then-out"
+      data-fragment-index="3"
+      src="assets/EE_ML_3.svg"
+      height="700"
+  />
+  <img
+      class="fragment fade-in-then-out"
+      data-fragment-index="4"
+      src="assets/EE_ML_4.svg"
+      height="700"
+  />
+</div>
+
+
+## What Exactly does it mean?
+<div style="border: 2px solid #007ACC; background-color: #E6F7FF; padding: 10px; border-radius: 8px; font-size: 1.1em;">
+    $ EE = \frac{\partial y(x_i)}{\partial x_i} $
+ 
+  </div>
+
+  - Partial derivatives of the differentiable function at the given point gives the sensitivity of the given term at that point.
+
+  <!-- .element: class="fragment fade-in" data-fragment-index="1" -->
+
+  - An example of 1 parameter model:
+
+  <!-- .element: class="fragment fade-in" data-fragment-index="2" -->
+
+<div class="r-stack">
+  <img
+    class="fragment fade-in-then-out"
+    data-fragment-index="3"
+    src="assets/data_driven/x_y.svg"
+  />
+  <img
+    class="fragment fade-in-then-out"
+    data-fragment-index="4"
+    src="assets/data_driven/x_y_line.svg"
+  />
+  <img
+    class="fragment fade-in-then-out"
+    data-fragment-index="5"
+    src="assets/data_driven/x_y_line_1.svg"
+  />
+</div>
+
+
+## Data-driven Model / No Differentiable function
+
+<div id="right">
+  <div class="r-stack">
+    <img
+      class="fragment fade-in-then-out"
+      data-fragment-index="1"
+      src="assets/data_driven/x_y.svg"
+    />
+    <img
+      class="fragment fade-in-then-out"
+      data-fragment-index="2"
+      src="assets/data_driven/x_y_1.svg"
+    />
+    <img
+      class="fragment fade-in"
+      data-fragment-index="3"
+      src="assets/data_driven/x_y_2.svg"
+    />
+  </div>
+</div>
+<div id="left">
+  
+  - Let's again take 1 parameter model with no known function.
+
+  <!-- .element: class="fragment fade-in" data-fragment-index="1" -->
+
+  - Just dataset, from measurements or simulated (e.g. CFD/FEA etc)
+
+  <!-- .element: class="fragment fade-in" data-fragment-index="2" -->
+
+  - Now Machine Learning (ML) comes. ML can create a fully differentiable function to approximate the given dataset.
+
+   <!-- .element: class="fragment fade-in" data-fragment-index="3" -->
+
+</div>
+
++ Backpropagation can be used on well estimated function of ML to compute the partial derivatives.assets
+
+<!-- .element: class="fragment fade-in" data-fragment-index="4" -->
+
+
+
+# Test case of Hydraulic Machinery
+
+
 ## Axial Turbine: A Test Case
 <img
     class="fragment fade-in-then-out"
@@ -347,34 +799,9 @@ where $\Delta$ is predetermined multiple of $1/(p-1)$ and point $x = (x_1, x_2,.
 <!-- .element: class="fragment" data-fragment-index="4"-->
 
 
-## Morris Method
 
-<div class="r-stack">
-  <img
-      class="fragment fade-in-then-out"
-      data-fragment-index="1"
-      src="assets/EE_ML_1.svg"
-      height="700"
-  />
-  <img
-      class="fragment fade-in-then-out"
-      data-fragment-index="2"
-      src="assets/EE_ML_2.svg"
-      height="700"
-  />
-  <img
-      class="fragment fade-in-then-out"
-      data-fragment-index="3"
-      src="assets/EE_ML_3.svg"
-      height="700"
-  />
-  <img
-      class="fragment fade-in-then-out"
-      data-fragment-index="4"
-      src="assets/EE_ML_4.svg"
-      height="700"
-  />
-</div>
+# Results
+
 
 ## Results 
 + Presented results are for efficiency at nominal loads.
